@@ -24,16 +24,16 @@ local diff = {
   cond = hide_in_width
 }
 
-local mode = {
-	"mode",
-	fmt = function(str)
-		return "-- " .. str .. " --"
-	end,
-}
+-- local mode = {
+-- 	"mode",
+-- 	fmt = function(str)
+-- 		return "-- " .. str .. " --"
+-- 	end,
+-- }
 
 local filetype = {
 	"filetype",
-	icons_enabled = false,
+	icons_enabled = true,
 	icon = nil,
 }
 
@@ -48,15 +48,30 @@ local location = {
 	padding = 0,
 }
 
+local filename = {
+  "filename",
+  path = 1,
+  -- 0: Just the filename 
+  -- 1: Relative path 
+  -- 2: Absolute path 
+  -- 3: Absolute path, with tilde as the home directory
+  symbols = {
+    -- modified = '[+]',      -- Text to show when the file is modified.
+    readonly = '',      -- Text to show when the file is non-modifiable or readonly.
+    -- unnamed = '[No Name]', -- Text to show for unnamed buffers.
+    -- newfile = '[New]',     -- Text to show for new created file before first writting
+    }
+}
+
 -- cool function for progress
-local progress = function()
-	local current_line = vim.fn.line(".")
-	local total_lines = vim.fn.line("$")
-	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-	local line_ratio = current_line / total_lines
-	local index = math.ceil(line_ratio * #chars)
-	return chars[index]
-end
+-- local progress = function()
+-- 	local current_line = vim.fn.line(".")
+-- 	local total_lines = vim.fn.line("$")
+-- 	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
+-- 	local line_ratio = current_line / total_lines
+-- 	local index = math.ceil(line_ratio * #chars)
+-- 	return chars[index]
+-- end
 
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
@@ -72,20 +87,20 @@ lualine.setup({
 		always_divide_middle = true,
 	},
 	sections = {
-		lualine_a = { branch, diagnostics },
-		lualine_b = { mode },
-		lualine_c = {},
+		lualine_a = { "mode" },
+		lualine_b = { branch, diagnostics },
+		lualine_c = { filename },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_y = { location },
-		lualine_z = { progress },
+		lualine_z = { "progress" },
 	},
 	inactive_sections = {
-		lualine_a = {},
+		lualine_a = { filename },
 		lualine_b = {},
-		lualine_c = { "filename" },
-		lualine_x = { "location" },
-		lualine_y = {},
+		lualine_c = {},
+		lualine_x = { filetype },
+		lualine_y = { "location" },
 		lualine_z = {},
 	},
 	tabline = {},

@@ -28,7 +28,14 @@ local function footer()
 	-- local fortune = handle:read("*a")
 	-- handle:close()
 	-- return fortune
-	return "chrisatmachine.com"
+  local date = os.date("  %Y/%m/%d ")
+  local time = os.date("  %H:%M:%S ")
+  -- local plugins = "  " .. #vim.tbl_keys(packer_plugins) .. " plugins "
+
+  local v = vim.version()
+  local version = "  v" .. v.major .. "." .. v.minor .. "." .. v.patch
+
+  return date .. time .. version  --.. plugins 
 end
 
 dashboard.section.footer.val = footer()
