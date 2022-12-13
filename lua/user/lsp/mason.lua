@@ -1,10 +1,14 @@
+-- Available servers, see https://github.com/williamboman/mason-lspconfig.nvim#configuraiton
 local servers = {
 	"sumneko_lua",
-	-- "cssls",
-	-- "html",
+    "dockerls",
+	"cssls",
+	"html",
 	"tsserver",
+    -- "eslint",
+    "quick_lint_js",
 	"pyright",
-	-- "bashls",
+	"bashls",
 	"jsonls",
 	-- "yamlls",
 }

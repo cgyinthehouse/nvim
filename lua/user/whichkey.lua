@@ -80,11 +80,8 @@ local opts = {
 
 local mappings = {
   ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
-  ["b"] = {
-    "<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Buffers",
-  },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
+  ["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus Explorer" },
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
@@ -95,6 +92,25 @@ local mappings = {
   },
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
+  ["m"] = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
+
+  b = {
+    name = "Buffers",
+     b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Search Buffers" },
+     j = { "<cmd>BufferLinePick<cr>", "Quick jump" },
+     l = { "BufferLineCloseLeft", "Close Left" },
+     r = { "BufferLineCloseRight", "Close Right" },
+     p = { "BufferLineTogglePin", "Toggle Pin" },
+     d = { "BufferLineSortByDirectory", "Sort by Directory" },
+     e = { "BufferLineSortByExtension", "Sort by Extension" },
+
+  },
+
+  C = {
+    name = "Color Hex",
+    c = { "<cmd>CccHighlighterToggle<cr>", "Toggle Highlighter" },
+    p = { "<cmd>CccPick<cr>", "Color Picker" }
+  },
 
   p = {
     name = "Packer",
@@ -152,14 +168,14 @@ local mappings = {
     },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
-    R = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    r = { "<cmd>lua Telescope lsp_references<cr>", "References"},
+    r = { ':IncRename ', "Rename" }, -- original: lua vim.lsp.buf.rename()
+    R = { "<cmd>Telescope lsp_references<cr>", "Telescope References"},
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
-    t = { "<cmd>Trouble<cr>", "Document Diagnostics (folke/Trouble)" }
+    t = { "<cmd>Trouble<cr>", "Troubles" }
   },
   s = {
     name = "Search",

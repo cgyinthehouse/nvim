@@ -3,7 +3,7 @@ if not status_ok then
   return
 end
 
-telescope.load_extension("media_files")
+-- telescope.load_extension("media_files")
 
 local actions = require "telescope.actions"
 
@@ -87,12 +87,15 @@ telescope.setup {
     -- }
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
+    colorscheme = {
+      enable_preview = true
+    }
   },
   extensions = {
-    media_files = {
-      filetype = {"png", "webp", "jpg", "jpeg" },
-      find_cmd = "rg"  -- find command (defaults to `fd`)
-    }
+    -- media_files = {
+    --   filetype = {"png", "webp", "jpg", "jpeg" },
+    --   find_cmd = "rg"  -- find command (defaults to `fd`)
+    -- }
     -- Your extension configuration goes here:
     -- extension_name = {
     --   extension_config_key = value,
