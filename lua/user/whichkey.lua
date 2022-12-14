@@ -98,11 +98,11 @@ local mappings = {
     name = "Buffers",
      b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Search Buffers" },
      j = { "<cmd>BufferLinePick<cr>", "Quick jump" },
-     l = { "BufferLineCloseLeft", "Close Left" },
-     r = { "BufferLineCloseRight", "Close Right" },
-     p = { "BufferLineTogglePin", "Toggle Pin" },
-     d = { "BufferLineSortByDirectory", "Sort by Directory" },
-     e = { "BufferLineSortByExtension", "Sort by Extension" },
+     l = { "<cmd>BufferLineCloseLeft<cr>", "Close Left" },
+     r = { "<cmd>BufferLineCloseRight<cr>", "Close Right" },
+     p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
+     d = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
+     e = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
 
   },
 
