@@ -8,6 +8,7 @@ local servers = {
     -- "eslint",
     "quick_lint_js",
 	"pyright",
+    "pylsp",
 	"bashls",
 	"jsonls",
 	-- "yamlls",

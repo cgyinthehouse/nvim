@@ -103,7 +103,16 @@ local mappings = {
      p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
      d = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
      e = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
+  },
 
+  x = {
+    name = "Trouble",
+    x = { "<cmd>TroubleToggle<cr>", "Toggle Trouble"},
+    w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble workspace diagnostics"},
+    d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Trouble document diagnostics"},
+    l = { "<cmd>TroubleToggle loclist<cr>", "Trouble loclist "},
+    q = { "<cmd>TroubleToggle quickfix<cr>", "Trouble quickfix "},
+    r = { "<cmd>TroubleToggle lsp_references<cr>", "lsp References"},
   },
 
   C = {
@@ -174,8 +183,7 @@ local mappings = {
     S = {
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
-    },
-    t = { "<cmd>Trouble<cr>", "Troubles" }
+    }
   },
   s = {
     name = "Search",
