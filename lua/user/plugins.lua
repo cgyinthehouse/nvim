@@ -74,6 +74,7 @@ return packer.startup(function(use)
 	-- Colorschemes
   use "folke/tokyonight.nvim"
   use "lunarvim/darkplus.nvim"
+  -- use {"levouh/tint.nvim", config = require("tint").setup() }
 
 	-- Cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -101,7 +102,7 @@ return packer.startup(function(use)
   use "nvim-telescope/telescope.nvim"
 
 	-- Treesitter
-  use "nvim-treesitter/nvim-treesitter"
+  use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
     use "p00f/nvim-ts-rainbow"
 
 	-- Git
