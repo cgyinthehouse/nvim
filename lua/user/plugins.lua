@@ -58,8 +58,9 @@ return packer.startup(function(use)
   use  "goolord/alpha-nvim"
   use "folke/which-key.nvim"
   use 'simrat39/symbols-outline.nvim'  -- Symbols outliner
-  use {"uga-rosa/ccc.nvim",config = function() require("ccc").setup() end }                          -- Color Picker
-  use  "petertriho/nvim-scrollbar"                                                                 -- Scroll bar
+  use {"uga-rosa/ccc.nvim",config = function() require("ccc").setup() end }   -- Color Picker
+  use  "petertriho/nvim-scrollbar"              -- Scroll bar
+  use {"levouh/tint.nvim", config = require("tint").setup() } -- dim inactive windows
 
    -- Add/change/delete surrounding delimiter pairs with ease
     use({ "kylechui/nvim-surround",
@@ -74,7 +75,6 @@ return packer.startup(function(use)
 	-- Colorschemes
   use "folke/tokyonight.nvim"
   use "lunarvim/darkplus.nvim"
-  -- use {"levouh/tint.nvim", config = require("tint").setup() }
 
 	-- Cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
