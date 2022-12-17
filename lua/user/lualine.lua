@@ -10,16 +10,16 @@ end
 local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	sections = { "error", "warn" },
-	symbols = { error = " ", warn = " " },
-	colored = false,
+	sections = { "error", "warn", "info", "hint" },
+	symbols = { error = " ", warn = " ", info = " ", hint = " " },
+	colored = true,
 	update_in_insert = false,
-	always_visible = true,
+	always_visible = false,
 }
 
 local diff = {
 	"diff",
-	colored = false,
+	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width
 }
@@ -51,11 +51,12 @@ local location = {
 
 local filename = {
   "filename",
-  path = 1,
+  -- path = 1,
   -- 0: Just the filename 
   -- 1: Relative path 
   -- 2: Absolute path 
   -- 3: Absolute path, with tilde as the home directory
+  newfile_status = true,
   symbols = {
     -- modified = '[+]',      -- Text to show when the file is modified.
     readonly = '',      -- Text to show when the file is non-modifiable or readonly.

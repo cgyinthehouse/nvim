@@ -122,12 +122,33 @@ cmp.setup {
     select = false,
   },
   window = {
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    },
+    -- completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered()
   },
   experimental = {
     ghost_text = false,
     native_menu = false,
   },
+  -- view = {
+  --   entries = {name = 'custom', selection_order = 'near_cursor' }
+  -- },
+  -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline({ '/', '?' }, {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  }),
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline',
+        option = {
+          ignore_cmds = { 'Man' }
+        }}
+    })
+  })
 }
