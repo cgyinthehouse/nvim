@@ -60,22 +60,23 @@ return packer.startup(function(use)
   use 'simrat39/symbols-outline.nvim'  -- Symbols outliner
   use {"uga-rosa/ccc.nvim",config = function() require("ccc").setup() end }   -- Color Picker
   use  "petertriho/nvim-scrollbar"              -- Scroll bar
-  -- use {"levouh/tint.nvim", config = require("tint").setup() } -- dim inactive windows
+  use  {"rcarriga/nvim-notify", config = function () vim.notify = require("notify") end }
 
    -- Add/change/delete surrounding delimiter pairs with ease
-    use({ "kylechui/nvim-surround",
-        tag = "*", -- Use for stability; omit to use `main` branch for the latest features
-        config = function()
-            require("nvim-surround").setup({
-                -- Configuration here, or leave empty to use defaults
-            })
-        end
-    })
+  use  { "kylechui/nvim-surround", tag = "*" } -- Use for stability; omit to use `main` branch for the latest features
 
 	-- Colorschemes
-  use "folke/tokyonight.nvim"
+  use {"folke/tokyonight.nvim",config = function () require("tokyonight").setup({
+    style = "night",
+    dim_inactive = true
+  }) end}
   use "lunarvim/darkplus.nvim"
-  use {'navarasu/onedark.nvim', config = function() require("onedark").setup({style="deep"}) end }
+  use {'navarasu/onedark.nvim', config = function() require("onedark").setup( {
+    toggle_style_key = "<leader>ts",
+    style = "darker",
+    code_style = { keywords = "italic" }
+  }) end }
+  use {"EdenEast/nightfox.nvim", config = function() require("nightfox").setup({options = {dim_inactive=true}}) end }
 
 	-- Cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
