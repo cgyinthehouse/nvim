@@ -61,6 +61,7 @@ return packer.startup(function(use)
   use {"uga-rosa/ccc.nvim",config = function() require("ccc").setup() end }   -- Color Picker
   use  "petertriho/nvim-scrollbar"              -- Scroll bar
   use  {"rcarriga/nvim-notify", config = function () vim.notify = require("notify") end }
+  use "folke/zen-mode.nvim"
 
    -- Add/change/delete surrounding delimiter pairs with ease
   use  { "kylechui/nvim-surround", tag = "*" } -- Use for stability; omit to use `main` branch for the latest features

@@ -93,6 +93,7 @@ local mappings = {
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["m"] = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
+  ['z'] = { "<cmd>ZenMode<cr>", "Zen Mode"},
 
   b = {
     name = "Buffers",
