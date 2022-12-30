@@ -64,7 +64,7 @@ return packer.startup(function(use)
   use "folke/zen-mode.nvim"
 
    -- Add/change/delete surrounding delimiter pairs with ease
-  use  { "kylechui/nvim-surround", tag = "*" } -- Use for stability; omit to use `main` branch for the latest features
+  use  { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup() end } -- Use for stability; omit to use `main` branch for the latest features
 
 	-- Colorschemes
   use {"folke/tokyonight.nvim",config = function () require("tokyonight").setup({

@@ -11,7 +11,7 @@ local diagnostics = null_ls.builtins.diagnostics
 null_ls.setup({
 	debug = false,
 	sources = {
-		formatting.prettier.with({ extra_args = { "--trailing-comma=none" } }),
+		formatting.prettier.with({ extra_args = { "--trailing-comma=none", "--arrow-parens=avoid" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
         diagnostics.ruff,
