@@ -3,8 +3,26 @@ if not status_ok then
 	return
 end
 
+local status_ok2, navic = pcall(require, "nvim-navic")
+if not status_ok2 then
+	return
+end
+
+local gps = { navic.get_location, cond = navic.is_available }
+
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
+end
+
+local function diff_source()
+  local gitsigns = vim.b.gitsigns_status_dict
+  if gitsigns then
+    return {
+    added = gitsigns.added,
+    modified = gitsigns.changed,
+    removed = gitsigns.removed
+  }
+  end
 end
 
 local diagnostics = {
@@ -19,6 +37,7 @@ local diagnostics = {
 
 local diff = {
 	"diff",
+    source = diff_source,
 	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
   cond = hide_in_width
@@ -35,7 +54,11 @@ local mode = {
 local filetype = {
 	"filetype",
 	icons_enabled = true,
-	icon = nil,
+}
+
+local filetype_icon = {
+	"filetype",
+	icon_only = true,
 }
 
 local branch = {
@@ -51,6 +74,8 @@ local location = {
 
 local filename = {
   "filename",
+  separator = ' ',
+  padding = 0,
   path = 1,
   -- 0: Just the filename 
   -- 1: Relative path 
@@ -76,7 +101,7 @@ local filename = {
 -- end
 
 local spaces = function()
-	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+	return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
 lualine.setup({
@@ -91,14 +116,13 @@ lualine.setup({
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch, diagnostics },
-		lualine_c = { filename },
-		-- lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_x = { diff, spaces, "encoding", filetype },
+		lualine_c = { diff },
+		lualine_x = { spaces, "encoding", "fileformat", filetype },
 		lualine_y = { location },
 		lualine_z = { "progress" },
 	},
 	inactive_sections = {
-		lualine_a = { filename },
+		lualine_a = {},
 		lualine_b = {},
 		lualine_c = {},
 		lualine_x = { filetype },
@@ -106,5 +130,11 @@ lualine.setup({
 		lualine_z = {},
 	},
 	tabline = {},
+    winbar = {
+        lualine_c = { filetype_icon, filename, gps }
+    },
+    inactive_winbar = {
+        lualine_c = { filetype_icon, filename, gps }
+    },
 	extensions = {},
 })

@@ -101,6 +101,7 @@ return packer.startup(function(use)
   use  "folke/trouble.nvim"
   use { "rmagatti/goto-preview", config = function() require("goto-preview").setup{ default_mappings = true } end }
   use { "smjonas/inc-rename.nvim", config = function() require("inc_rename").setup() end }
+  use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
 
 	-- Telescope
   use "nvim-telescope/telescope.nvim"

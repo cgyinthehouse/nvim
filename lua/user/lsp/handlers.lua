@@ -86,6 +86,16 @@ M.on_attach = function(client, bufnr)
 		return
 	end
 	illuminate.on_attach(client)
+
+	local status_ok2, navic = pcall(require, "nvim-navic")
+	if not status_ok2 then
+		return
+	end
+    navic.attach(client,bufnr)
+    navic.setup({
+      highlight = true,
+      separator = "  "
+    })
 end
 
 return M

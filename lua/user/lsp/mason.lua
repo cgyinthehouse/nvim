@@ -6,7 +6,7 @@ local servers = {
 	"html",
 	"tsserver",
     -- "eslint",
-    "quick_lint_js",
+    -- "quick_lint_js",
 	"pyright",
     "pylsp",
 	"bashls",
