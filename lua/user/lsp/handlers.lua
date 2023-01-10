@@ -67,7 +67,7 @@ local function lsp_keymaps(bufnr)
 	keymap(bufnr, "n", "<leader>lj", "<cmd>lua vim.diagnostic.goto_next({buffer=0})<cr>", opts)
 	keymap(bufnr, "n", "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<cr>", opts)
 	-- keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-	keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+	-- keymap(bufnr, "n", "<leader>ls", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	keymap(bufnr, "n", "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 end
 
@@ -96,6 +96,13 @@ M.on_attach = function(client, bufnr)
       highlight = true,
       separator = "  "
     })
+
+    local status_ok3, signature = pcall(require,"lsp_signature")
+    if not status_ok3 then
+      return
+    end
+    local cfg = require "user.lsp.lsp-signature"
+    signature.setup(cfg, bufnr)
 end
 
 return M

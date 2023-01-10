@@ -110,7 +110,8 @@ lualine.setup({
 		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline" },
+		disabled_filetypes = { "alpha", "dashboard", "NvimTree",-- "Outline",
+          winbar = { "alpha", "dashboard", "NvimTree", "Outline", "terminal"}},
 		always_divide_middle = true,
 	},
 	sections = {
@@ -136,5 +137,5 @@ lualine.setup({
     inactive_winbar = {
         lualine_c = { filetype_icon, filename, gps }
     },
-	extensions = {},
+	extensions = {"toggleterm","symbols-outline"},
 })

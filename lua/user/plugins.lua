@@ -62,6 +62,7 @@ return packer.startup(function(use)
   use  "petertriho/nvim-scrollbar"              -- Scroll bar
   use  {"rcarriga/nvim-notify", config = function () vim.notify = require("notify") end }
   use "folke/zen-mode.nvim"
+  -- use {'karb94/neoscroll.nvim', config = function() require("neoscroll").setup() end }
 
    -- Add/change/delete surrounding delimiter pairs with ease
   use  { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup() end } -- Use for stability; omit to use `main` branch for the latest features
@@ -69,8 +70,13 @@ return packer.startup(function(use)
 	-- Colorschemes
   use {"folke/tokyonight.nvim",config = function () require("tokyonight").setup({
     style = "night",
-    dim_inactive = true
-  }) end}
+    dim_inactive = true,
+    on_highlights = function(hl, colors)
+      hl.NvimTreeFolderIcon = { fg = colors.yellow }
+    end
+  })
+  end
+  }
   use "lunarvim/darkplus.nvim"
   use {'navarasu/onedark.nvim', config = function() require("onedark").setup( {
     toggle_style_key = "<leader>ts",
@@ -102,6 +108,7 @@ return packer.startup(function(use)
   use { "rmagatti/goto-preview", config = function() require("goto-preview").setup{ default_mappings = true } end }
   use { "smjonas/inc-rename.nvim", config = function() require("inc_rename").setup() end }
   use { "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" }
+  use  "ray-x/lsp_signature.nvim"
 
 	-- Telescope
   use "nvim-telescope/telescope.nvim"

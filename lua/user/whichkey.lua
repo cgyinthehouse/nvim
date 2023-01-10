@@ -79,7 +79,7 @@ local opts = {
 }
 
 local mappings = {
-  ["a"] = { "<cmd>Alpha<cr>", "Alpha" },
+  [";"] = { "<cmd>Alpha<cr>", "Dashboard" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus Explorer" },
   -- ["w"] = { "<cmd>w!<CR>", "Save" },
@@ -109,11 +109,11 @@ local mappings = {
   x = {
     name = "Trouble",
     x = { "<cmd>TroubleToggle<cr>", "Toggle Trouble"},
-    w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Trouble workspace diagnostics"},
-    d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Trouble document diagnostics"},
-    l = { "<cmd>TroubleToggle loclist<cr>", "Trouble loclist "},
-    q = { "<cmd>TroubleToggle quickfix<cr>", "Trouble quickfix "},
-    r = { "<cmd>TroubleToggle lsp_references<cr>", "lsp References"},
+    w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace diagnostics"},
+    d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document diagnostics"},
+    l = { "<cmd>TroubleToggle loclist<cr>", "Loclist "},
+    q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix "},
+    r = { "<cmd>TroubleToggle lsp_references<cr>", "Lsp References"},
   },
 
   C = {
@@ -196,6 +196,7 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
+    H = { "<cmd>Telescope highlights<cr>", "Find Highlight Groups" },
   },
 
   t = {

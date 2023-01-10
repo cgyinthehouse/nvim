@@ -45,7 +45,7 @@ bufferline.setup {
       local s = " "
       for e, n in pairs(diagnostics_dict) do
         local sym = e == "error" and " "
-          or (e == "warning" and " " or " " )
+          or (e == "warning" and " " or " " )
         s = s .. n .. sym
       end
       -- return " " .. icon .. count
@@ -147,15 +147,15 @@ bufferline.setup {
     },
 
     modified = {
-      fg = { attribute = "fg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "NvimTreeModifiedFile" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
     modified_selected = {
-      fg = { attribute = "fg", highlight = "Normal" },
-      bg = { attribute = "bg", highlight = "Normal" },
+      fg = { attribute = "fg", highlight = "NvimTreeModifiedFile" },
+      bg = { attribute = "bg", highlight = "TabLine" },
     },
     modified_visible = {
-      fg = { attribute = "fg", highlight = "TabLine" },
+      fg = { attribute = "fg", highlight = "NvimTreeModifiedFile" },
       bg = { attribute = "bg", highlight = "TabLine" },
     },
 
