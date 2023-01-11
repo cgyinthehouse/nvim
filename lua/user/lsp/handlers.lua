@@ -91,7 +91,9 @@ M.on_attach = function(client, bufnr)
 	if not status_ok2 then
 		return
 	end
+    if client.server_capabilities.documentSymbolProvider then
     navic.attach(client,bufnr)
+    end
     navic.setup({
       highlight = true,
       separator = "  "
@@ -102,7 +104,7 @@ M.on_attach = function(client, bufnr)
       return
     end
     local cfg = require "user.lsp.lsp-signature"
-    signature.setup(cfg, bufnr)
+    signature.on_attach(cfg, bufnr)
 end
 
 return M

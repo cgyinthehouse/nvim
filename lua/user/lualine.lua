@@ -137,5 +137,5 @@ lualine.setup({
     inactive_winbar = {
         lualine_c = { filetype_icon, filename, gps }
     },
-	extensions = {"toggleterm","symbols-outline"},
+	extensions = { "symbols-outline" },
 })
