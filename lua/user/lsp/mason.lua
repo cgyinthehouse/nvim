@@ -11,7 +11,8 @@ local servers = {
     "pylsp",
 	"bashls",
 	"jsonls",
-    "ruff_lsp"
+    "ruff_lsp",
+    "emmet_ls"
 	-- "yamlls",
 }
 
