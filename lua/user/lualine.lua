@@ -75,6 +75,7 @@ local location = {
 local filename = {
   "filename",
   separator = ' ',
+  color = { gui = "bold" },
   padding = 0,
   path = 1,
   -- 0: Just the filename 
