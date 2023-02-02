@@ -1,3 +1,45 @@
+local tokyonight = require("tokyonight")
+local onedark = require("onedark")
+local nightfox = require("nightfox")
+
+nightfox.setup({
+  options = {
+    transparent = true,
+    styles = {
+      comments = "italic",
+      keywords = "italic"
+    },
+    groups = {
+      all = {
+        NvimTreeFolderIcon = { fg = "#e0af68" }
+      }
+    }
+  }
+})
+
+onedark.setup({
+  transparent = true,
+  toggle_style_key = "<leader>ts",
+  style = "darker",
+  code_style = {
+    keywords = "italic",
+    comments = 'italic'
+  },
+  highlights = {
+    ["NvimTreeFolderIcon"] = { fg = '#e0af68' }
+  },
+  lualine = { transparent = true }
+})
+
+tokyonight.setup({
+  style = "night",
+  dim_inactive = true,
+  transparent = true,
+  on_highlights = function(hl, colors)
+    hl.NvimTreeFolderIcon = { fg = colors.yellow }
+  end
+})
+
 local colorscheme = "tokyonight-night"
 
 local status_ok, _ = pcall(vim.cmd, "colorscheme " .. colorscheme)

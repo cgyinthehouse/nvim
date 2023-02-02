@@ -8,7 +8,7 @@ if not status_ok2 then
 	return
 end
 
-local gps = { navic.get_location, cond = navic.is_available }
+local breadcrumbs = { navic.get_location, cond = navic.is_available }
 
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80
@@ -132,10 +132,10 @@ lualine.setup({
 	},
 	tabline = {},
     winbar = {
-        lualine_c = { filetype_icon, filename, gps }
+        lualine_c = { filetype_icon, filename, breadcrumbs }
     },
     inactive_winbar = {
-        lualine_c = { filetype_icon, filename, gps }
+        lualine_c = { filetype_icon, filename, breadcrumbs }
     },
 	extensions = { "symbols-outline" },
 })

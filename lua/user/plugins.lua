@@ -68,22 +68,10 @@ return packer.startup(function(use)
   use  { "kylechui/nvim-surround", tag = "*", config = function() require("nvim-surround").setup() end } -- Use for stability; omit to use `main` branch for the latest features
 
 	-- Colorschemes
-  use {"folke/tokyonight.nvim",config = function () require("tokyonight").setup({
-    style = "night",
-    dim_inactive = true,
-    on_highlights = function(hl, colors)
-      hl.NvimTreeFolderIcon = { fg = colors.yellow }
-    end
-  })
-  end
-  }
+  use "folke/tokyonight.nvim"
   use "lunarvim/darkplus.nvim"
-  use {'navarasu/onedark.nvim', config = function() require("onedark").setup( {
-    toggle_style_key = "<leader>ts",
-    style = "darker",
-    code_style = { keywords = "italic" }
-  }) end }
-  use {"EdenEast/nightfox.nvim", config = function() require("nightfox").setup({options = {dim_inactive=true}}) end }
+  use 'navarasu/onedark.nvim'
+  use "EdenEast/nightfox.nvim"
 
 	-- Cmp 
   use "hrsh7th/nvim-cmp" -- The completion plugin
