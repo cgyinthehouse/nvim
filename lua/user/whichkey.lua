@@ -82,22 +82,19 @@ local mappings = {
   [";"] = { "<cmd>Alpha<cr>", "Dashboard" },
   ["e"] = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   ["o"] = { "<cmd>NvimTreeFocus<cr>", "Focus Explorer" },
-  -- ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
   ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
-  ["f"] = {
-    "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
-    "Find files",
-  },
+  ["f"] = { "<cmd>Telescope find_files theme=dropdown previewer=false<cr>", "Find files", },
   ["F"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
   ["m"] = { "<cmd>SymbolsOutline<cr>", "Symbols Outline" },
-  ['z'] = { "<cmd>ZenMode<cr>", "Zen Mode"},
+  ["u"] = { "<cmd>Telescope undo<cr>", "Undo Tree"},
+  ['z'] = { "<cmd>ZenMode<cr>", "Toggle Zen Mode"},
 
   b = {
     name = "Buffers",
-     b = {"<cmd>lua require('telescope.builtin').buffers(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Search Buffers" },
+     b = {"<cmd>Telescope buffers theme=dropdown previewer=false layout_config={'height':0.5}<cr>", "Search Buffers" },
      j = { "<cmd>BufferLinePick<cr>", "Quick jump" },
      k = { "<cmd>BufferLinePickClose<cr>", "Choose To Close" },
      l = { "<cmd>BufferLineCloseLeft<cr>", "Close Left" },
@@ -130,6 +127,7 @@ local mappings = {
     s = { "<cmd>PackerSync<cr>", "Sync" },
     S = { "<cmd>PackerStatus<cr>", "Status" },
     u = { "<cmd>PackerUpdate<cr>", "Update" },
+    p = { "<cmd>Telescope packer<cr>", "Plugins Details"}
   },
 
   g = {
@@ -142,10 +140,9 @@ local mappings = {
     r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
     R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
-      "Undo Stage Hunk",
-    },
+    t = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame"},
+    h = { "<cmd>Gitsigns toggle_linehl<cr>", "Toggle Line Highlight"},
+    u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -190,14 +187,15 @@ local mappings = {
   s = {
     name = "Search",
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    c = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    h = { "<cmd>Telescope help_tags<cr>", "Find Help" },
-    M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
+    c = { "<cmd>Telescope colorscheme layout_strategy=vertical layout_config={'height':0.6,'width':0.25,'preview_height':1}<cr>", "Colorscheme" },
+    h = { "<cmd>Telescope help_tags layout_config={'preview_width':0.6}<cr>", "Find Help" },
+    m = { "<cmd>Telescope man_pages layout_config={'preview_width':0.6}<cr>", "Man Pages" },
     r = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     H = { "<cmd>Telescope highlights<cr>", "Find Highlight Groups" },
+    [';'] = { "<cmd>Telescope command_history<cr>", "Command History" },
   },
 
   t = {

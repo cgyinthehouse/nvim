@@ -5,7 +5,7 @@ local servers = {
 	"cssls",
 	"html",
 	"tsserver",
-    -- "eslint",
+    "eslint",
     "quick_lint_js",
 	-- "pyright",
     "pylsp",
@@ -18,11 +18,10 @@ local servers = {
 
 local settings = {
 	ui = {
-		border = "none",
 		icons = {
-			package_installed = "◍",
-			package_pending = "◍",
-			package_uninstalled = "◍",
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗",
 		},
 	},
 	log_level = vim.log.levels.INFO,

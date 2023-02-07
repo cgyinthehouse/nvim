@@ -33,8 +33,11 @@ onedark.setup({
 
 tokyonight.setup({
   style = "night",
-  dim_inactive = true,
   transparent = true,
+  styles = {
+    sidebars = "normal",
+    floats =  "normal"
+  },
   on_highlights = function(hl, colors)
     hl.NvimTreeFolderIcon = { fg = colors.yellow }
   end
