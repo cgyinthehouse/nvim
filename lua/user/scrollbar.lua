@@ -11,7 +11,6 @@ scrollbar.setup({
       "TelescopePrompt",
       "noice"
   },
-  handlers = { gitsigns = true },
   -- handle ={ color = colors.bg_hightlight },
   -- marks = {
   --   Search = { color = colors.orange },

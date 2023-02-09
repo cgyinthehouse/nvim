@@ -26,7 +26,8 @@ onedark.setup({
     comments = 'italic'
   },
   highlights = {
-    ["NvimTreeFolderIcon"] = { fg = '#e0af68' }
+    ["NvimTreeFolderIcon"] = { fg = '#e0af68' },
+    ['Search'] = { bg = '#c0a064' }
   },
   lualine = { transparent = true }
 })

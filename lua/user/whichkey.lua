@@ -142,6 +142,7 @@ local mappings = {
     s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
     t = { "<cmd>Gitsigns toggle_current_line_blame<cr>", "Toggle current line blame"},
     h = { "<cmd>Gitsigns toggle_linehl<cr>", "Toggle Line Highlight"},
+    n = { "<cmd>Gitsigns toggle_numhl<cr>", "Toggle Line Number Highlight"},
     u = { "<cmd>Gitsigns undo_stage_hunk<cr>", "Undo Stage Hunk" },
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
