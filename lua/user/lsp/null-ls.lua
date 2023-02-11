@@ -15,6 +15,7 @@ null_ls.setup({
 		formatting.prettier.with({ extra_args = { "--trailing-comma=none", "--arrow-parens=avoid", "--no-semi" } }),
 		formatting.black.with({ extra_args = { "--fast" } }),
 		formatting.stylua,
+		formatting.beautysh,
 		diagnostics.ruff,
 		code_actions.eslint,
 		-- diagnostics.eslint.with({extra_args = { "--no-eslintrc" }})

@@ -42,6 +42,7 @@ packer.init({
 return packer.startup(function(use)
 	use("wbthomason/packer.nvim") -- Have packer manage itself
 	use("nvim-lua/plenary.nvim") -- Useful lua functions used by lots of plugins
+    use "nvim-lua/popup.nvim"
 	use("windwp/nvim-autopairs") -- Autopairs, integrates with both cmp and treesitter
 	use("windwp/nvim-ts-autotag")
 	use("numToStr/Comment.nvim")
@@ -127,9 +128,11 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
+    use("nvim-telescope/telescope-file-browser.nvim")
 	use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 	use("nvim-telescope/telescope-packer.nvim") -- view plugins details
 	use("debugloop/telescope-undo.nvim") --undo tree
+    use"jvgrootveld/telescope-zoxide"
 
 	-- Treesitter
 	use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })

@@ -196,6 +196,8 @@ local mappings = {
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
     H = { "<cmd>Telescope highlights<cr>", "Find Highlight Groups" },
+    f = { "<cmd>Telescope file_browser<cr>", "File Browser" },
+    z = { "<cmd>Telescope zoxide list<cr>", "Zoxide List" },
     [';'] = { "<cmd>Telescope command_history<cr>", "Command History" },
   },
 

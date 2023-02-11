@@ -114,7 +114,7 @@ telescope.setup {
       }
     },
     packer = {
-        -- mappings:(insert mode)
+        -- mappings: (Note: INSERT mode)
         -- C-o: open online repos 
         -- C-f: open with find_files 
         -- C-b: open with **telescope-file-browser**
@@ -134,9 +134,31 @@ telescope.setup {
           preview_height = 0.65
         }
         }
-      }
+      },
+    zoxide = {
+      -- <C-e> ==> :edit <path>
+      -- <C-s> ==> :sp <path>
+      -- <C-v> ==> :vs <path>
+      -- <C-b> ==> :Telescope file_browser
+      -- <C-f> ==> :Telescope find_files
+        mappings = {
+          default = {
+            after_action = function(selection)
+              print("Directory changed to " .. selection.path .. " (Score: " .. selection.z_score .. ")")
+            end
+          },
+          ["<C-b>"] = {
+          keepinsert = true,
+          action = function(selection)
+            telescope.extensions.file_browser.file_browser({ cwd = selection.path })
+          end
+        },
+      },
+    }
   },
 }
 telescope.load_extension('fzf')
 telescope.load_extension('undo')
 telescope.load_extension('packer')
+telescope.load_extension('zoxide')
+telescope.load_extension('file_browser')
