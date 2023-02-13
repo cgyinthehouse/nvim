@@ -1,18 +1,18 @@
 -- Available servers, see https://github.com/williamboman/mason-lspconfig.nvim#configuraiton
 local servers = {
-	"sumneko_lua",
-    "dockerls",
+	"lua_ls",
+	"dockerls",
 	"cssls",
 	"html",
 	"tsserver",
-    "eslint",
-    "quick_lint_js",
+	"eslint",
+	"quick_lint_js",
 	-- "pyright",
-    "pylsp",
+	"pylsp",
 	"bashls",
 	"jsonls",
-    "ruff_lsp",
-    "emmet_ls"
+	"ruff_lsp",
+	"emmet_ls",
 	-- "yamlls",
 }
 

@@ -122,17 +122,17 @@ telescope.setup {
         layout_strategy = "flex",
         layout_config = {
           height = .8,
-          flip_columns = 100,
+          flip_columns = 120,
           horizontal = {
-          width = 0.8,
-          height = 0.8,
-          preview_width = 0.6
-        },
+            width = 0.8,
+            height = 0.8,
+            preview_width = 0.6
+          },
           vertical = {
-          horizontal = 0.8,
-          height = 0.9,
-          preview_height = 0.65
-        }
+            horizontal = 0.8,
+            height = 0.9,
+            preview_height = 0.65
+          }
         }
       },
     zoxide = {
@@ -157,6 +157,7 @@ telescope.setup {
     }
   },
 }
+telescope.load_extension('notify')
 telescope.load_extension('fzf')
 telescope.load_extension('undo')
 telescope.load_extension('packer')
