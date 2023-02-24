@@ -5,7 +5,7 @@ end
 
 configs.setup({
   ensure_installed = { "bash", "c", "javascript", "json", "lua", "python", "typescript", "tsx", "css", "rust", "java", "yaml",
-    "markdown", "markdown_inline", "fish", "embedded_template", "toml", "dockerfile" }, -- one of "all" or a list of languages
+    "markdown", "markdown_inline", "fish", "embedded_template", "toml", "dockerfile", "graphql" }, -- one of "all" or a list of languages
 	ignore_install = { "phpdoc" }, -- List of parsers to ignore installing
 	highlight = {
 		enable = true, -- false will disable the whole extension

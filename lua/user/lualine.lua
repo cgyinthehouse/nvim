@@ -15,14 +15,14 @@ local hide_in_width = function()
 end
 
 local function diff_source()
-  local gitsigns = vim.b.gitsigns_status_dict
-  if gitsigns then
-    return {
-    added = gitsigns.added,
-    modified = gitsigns.changed,
-    removed = gitsigns.removed
-  }
-  end
+	local gitsigns = vim.b.gitsigns_status_dict
+	if gitsigns then
+		return {
+			added = gitsigns.added,
+			modified = gitsigns.changed,
+			removed = gitsigns.removed,
+		}
+	end
 end
 
 local diagnostics = {
@@ -37,15 +37,15 @@ local diagnostics = {
 
 local diff = {
 	"diff",
-    source = diff_source,
+	source = diff_source,
 	colored = true,
 	symbols = { added = " ", modified = " ", removed = " " }, -- changes diff symbols
-  cond = hide_in_width
+	cond = hide_in_width,
 }
 
 local mode = {
 	"mode",
-     color = { gui = "bold" }
+	color = { gui = "bold" },
 	-- fmt = function(str)
 	-- 	return "-- " .. str .. " --"
 	-- end,
@@ -73,23 +73,27 @@ local location = {
 }
 
 local filename = {
-  "filename",
-  separator = ' ',
-  color = { gui = "bold" },
-  padding = 0,
-  path = 1,
-  -- 0: Just the filename 
-  -- 1: Relative path 
-  -- 2: Absolute path 
-  -- 3: Absolute path, with tilde as the home directory
-  newfile_status = true,
-  symbols = {
-    -- modified = '[+]',      -- Text to show when the file is modified.
-    readonly = '',      -- Text to show when the file is non-modifiable or readonly.
-    -- unnamed = '[No Name]', -- Text to show for unnamed buffers.
-    -- newfile = '[New]',     -- Text to show for new created file before first writting
-    }
+	"filename",
+	separator = " ",
+	color = { gui = "bold" },
+	padding = 0,
+	path = 1,
+	-- 0: Just the filename
+	-- 1: Relative path
+	-- 2: Absolute path
+	-- 3: Absolute path, with tilde as the home directory
+	newfile_status = true,
+	symbols = {
+		-- modified = '[+]',      -- Text to show when the file is modified.
+		readonly = "", -- Text to show when the file is non-modifiable or readonly.
+		-- unnamed = '[No Name]', -- Text to show for unnamed buffers.
+		-- newfile = '[New]',     -- Text to show for new created file before first writting
+	},
 }
+
+local package_info_status = function()
+	return require("package-info").get_status()
+end
 
 -- cool function for progress
 -- local progress = function()
@@ -111,14 +115,18 @@ lualine.setup({
 		theme = "auto",
 		component_separators = { left = "", right = "" },
 		section_separators = { left = "", right = "" },
-		disabled_filetypes = { "alpha", "dashboard", "NvimTree",-- "Outline",
-          winbar = { "alpha", "dashboard", "NvimTree", "Outline", "terminal"}},
+		disabled_filetypes = {
+			"alpha",
+			"dashboard",
+			"NvimTree",
+			winbar = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
+		},
 		always_divide_middle = true,
 	},
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch, diagnostics },
-		lualine_c = { diff },
+		lualine_c = { diff, package_info_status },
 		lualine_x = { spaces, "encoding", "fileformat", filetype },
 		lualine_y = { location },
 		lualine_z = { "progress" },
@@ -132,11 +140,11 @@ lualine.setup({
 		lualine_z = {},
 	},
 	tabline = {},
-    winbar = {
-        lualine_c = { filetype_icon, filename, breadcrumbs }
-    },
-    inactive_winbar = {
-        lualine_c = { filetype_icon, filename, breadcrumbs }
-    },
+	winbar = {
+		lualine_c = { filetype_icon, filename, breadcrumbs },
+	},
+	inactive_winbar = {
+		lualine_c = { filetype_icon, filename, breadcrumbs },
+	},
 	extensions = { "symbols-outline" },
 })

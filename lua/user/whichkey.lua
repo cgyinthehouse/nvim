@@ -67,6 +67,9 @@ local setup = {
     i = { "j", "k" },
     v = { "j", "k" },
   },
+  disable = {
+    filetypes = { "toggleterm", "TelescopePrompt" }
+  }
 }
 
 local opts = {
@@ -147,10 +150,18 @@ local mappings = {
     o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    d = {
-      "<cmd>Gitsigns diffthis HEAD<cr>",
-      "Diff",
-    },
+    d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" }
+  },
+
+  n = {
+    name = "NPM",
+    s = {"<cmd>lua require 'package-info'.show()<cr>", "Show deps versions"},
+    h = {"<cmd>lua require 'package-info'.hide()<cr>", "Hide deps versions"},
+    t = {"<cmd>lua require 'package-info'.toggle()<cr>", "Toggle deps versions"},
+    u = {"<cmd>lua require 'package-info'.update()<cr>", "Update the dep"},
+    d = {"<cmd>lua require 'package-info'.delete()<cr>", "Delete the dep"},
+    i = {"<cmd>lua require 'package-info'.install()<cr>", "Install a new dep"},
+    c = {"<cmd>lua require 'package-info'.change_version()<cr>", "Change to another version"},
   },
 
   l = {

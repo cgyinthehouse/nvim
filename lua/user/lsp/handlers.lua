@@ -92,7 +92,7 @@ M.on_attach = function(client, bufnr)
     end
     navic.setup({
       highlight = true,
-      separator = "  "
+      separator = "  "
     })
 
     local status_ok3, signature = pcall(require,"lsp_signature")

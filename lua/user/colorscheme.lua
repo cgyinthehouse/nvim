@@ -9,10 +9,12 @@ nightfox.setup({
       comments = "italic",
       keywords = "italic"
     },
-    groups = {
-      all = {
-        NvimTreeFolderIcon = { fg = "#e0af68" }
-      }
+  },
+  groups = {
+    all = {
+      NvimTreeFolderIcon = { fg = "#e0af68" },
+      NavicText = { fg = "#9edaf4" },
+      NavicSeparator = { fg = "#a2a2cd" }
     }
   }
 })
@@ -27,6 +29,8 @@ onedark.setup({
   },
   highlights = {
     ["NvimTreeFolderIcon"] = { fg = '#e0af68' },
+    ["NavicText"] = { fg = "#9edaf4" },
+    ["NavicSeparator"] = { fg = "#a2a2cd" },
     ['Search'] = { bg = '#c0a064' }
   },
   lualine = { transparent = true }
@@ -37,10 +41,12 @@ tokyonight.setup({
   transparent = true,
   styles = {
     sidebars = "normal",
-    floats =  "normal"
+    floats = "normal"
   },
   on_highlights = function(hl, colors)
     hl.NvimTreeFolderIcon = { fg = colors.yellow }
+    hl.NavicText = { fg = "#9edaf4" }
+    hl.NavicSeparator = { fg = "#a2a2cd" }
   end
 })
 
@@ -51,4 +57,6 @@ if not status_ok then
   return
 end
 
-vim.api.nvim_set_hl(0,"NvimTreeFolderIcon",{fg = "#e0af68" })
+vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#e0af68" })
+vim.api.nvim_set_hl(0, "NavicSeparator", { fg = "#a2a2cd" })
+vim.api.nvim_set_hl(0, "NavicText", { fg = "#9edaf4" })
