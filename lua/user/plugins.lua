@@ -62,13 +62,6 @@ return packer.startup(function(use)
 	use("petertriho/nvim-scrollbar") -- Scroll bar
 	use("folke/zen-mode.nvim")
 	use("rcarriga/nvim-notify")
-	use("MunifTanjim/nui.nvim")
-
-	-- FIXME: Figure out why this doesn't work
-	use({
-		"vuki656/package-info.nvim",
-		requires = "MunifTanjim/nui.nvim",
-	})
 
 	-- Add/change/delete surrounding delimiter pairs with ease
 	use({

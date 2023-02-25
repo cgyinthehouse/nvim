@@ -91,10 +91,6 @@ local filename = {
 	},
 }
 
-local package_info_status = function()
-	return require("package-info").get_status()
-end
-
 -- cool function for progress
 -- local progress = function()
 -- 	local current_line = vim.fn.line(".")
@@ -126,7 +122,7 @@ lualine.setup({
 	sections = {
 		lualine_a = { mode },
 		lualine_b = { branch, diagnostics },
-		lualine_c = { diff, package_info_status },
+		lualine_c = { diff },
 		lualine_x = { spaces, "encoding", "fileformat", filetype },
 		lualine_y = { location },
 		lualine_z = { "progress" },

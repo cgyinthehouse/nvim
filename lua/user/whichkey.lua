@@ -153,17 +153,6 @@ local mappings = {
     d = { "<cmd>Gitsigns diffthis HEAD<cr>", "Diff" }
   },
 
-  n = {
-    name = "NPM",
-    s = {"<cmd>lua require 'package-info'.show()<cr>", "Show deps versions"},
-    h = {"<cmd>lua require 'package-info'.hide()<cr>", "Hide deps versions"},
-    t = {"<cmd>lua require 'package-info'.toggle()<cr>", "Toggle deps versions"},
-    u = {"<cmd>lua require 'package-info'.update()<cr>", "Update the dep"},
-    d = {"<cmd>lua require 'package-info'.delete()<cr>", "Delete the dep"},
-    i = {"<cmd>lua require 'package-info'.install()<cr>", "Install a new dep"},
-    c = {"<cmd>lua require 'package-info'.change_version()<cr>", "Change to another version"},
-  },
-
   l = {
     name = "LSP",
     a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
