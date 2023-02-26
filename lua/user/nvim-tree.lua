@@ -25,6 +25,7 @@ nvim_tree.setup {
       enable = true,
     },
     icons = {
+      git_placement = "after",
       glyphs = {
         folder = {
           arrow_open = "",
