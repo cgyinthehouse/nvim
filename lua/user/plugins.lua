@@ -106,6 +106,7 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- for formatters and linters
 	use("RRethy/vim-illuminate")
 	use("folke/trouble.nvim")
+	use("simrat39/rust-tools.nvim")
 	use({ "SmiteshP/nvim-navic", requires = "neovim/nvim-lspconfig" })
 	use("ray-x/lsp_signature.nvim")
 	use({
@@ -120,6 +121,10 @@ return packer.startup(function(use)
 			require("inc_rename").setup()
 		end,
 	})
+
+	-- Debugging
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	-- Telescope
 	use("nvim-telescope/telescope.nvim")
