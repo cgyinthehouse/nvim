@@ -2,6 +2,11 @@ local tokyonight = require("tokyonight")
 local onedark = require("onedark")
 local nightfox = require("nightfox")
 
+-- colors
+local breadcrumbText = '#9ee4b8'
+local breadcrumbSeperator = '#a2a2cd'
+local nvimTreeFolderIcon = '#e0af68'
+
 nightfox.setup({
   options = {
     transparent = true,
@@ -12,9 +17,9 @@ nightfox.setup({
   },
   groups = {
     all = {
-      NvimTreeFolderIcon = { fg = "#e0af68" },
-      NavicText = { fg = "#9edaf4" },
-      NavicSeparator = { fg = "#a2a2cd" }
+      NvimTreeFolderIcon = { fg = nvimTreeFolderIcon },
+      NavicText = { fg = breadcrumbText },
+      NavicSeparator = { fg = breadcrumbSeperator }
     }
   }
 })
@@ -28,9 +33,9 @@ onedark.setup({
     comments = 'italic'
   },
   highlights = {
-    ["NvimTreeFolderIcon"] = { fg = '#e0af68' },
-    ["NavicText"] = { fg = "#9edaf4" },
-    ["NavicSeparator"] = { fg = "#a2a2cd" },
+    ["NvimTreeFolderIcon"] = { fg = nvimTreeFolderIcon },
+    ["NavicText"] = { fg = breadcrumbText },
+    ["NavicSeparator"] = { fg = breadcrumbSeperator },
     ['Search'] = { bg = '#c0a064' }
   },
   lualine = { transparent = true }
@@ -40,13 +45,14 @@ tokyonight.setup({
   style = "night",
   transparent = true,
   styles = {
-    sidebars = "normal",
+    sidebars = "transparent",
     floats = "normal"
   },
+  sidebars = { "nvim-tree", "help" },
   on_highlights = function(hl, colors)
     hl.NvimTreeFolderIcon = { fg = colors.yellow }
-    hl.NavicText = { fg = "#9edaf4" }
-    hl.NavicSeparator = { fg = "#a2a2cd" }
+    hl.NavicText = { fg = breadcrumbText }
+    hl.NavicSeparator = { fg = breadcrumbSeperator }
   end
 })
 
@@ -57,6 +63,6 @@ if not status_ok then
   return
 end
 
-vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = "#e0af68" })
-vim.api.nvim_set_hl(0, "NavicSeparator", { fg = "#a2a2cd" })
-vim.api.nvim_set_hl(0, "NavicText", { fg = "#9edaf4" })
+vim.api.nvim_set_hl(0, "NvimTreeFolderIcon", { fg = nvimTreeFolderIcon })
+vim.api.nvim_set_hl(0, "NavicSeparator", { fg = breadcrumbSeperator })
+vim.api.nvim_set_hl(0, "NavicText", { fg = breadcrumbText })

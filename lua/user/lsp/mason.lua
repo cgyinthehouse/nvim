@@ -13,7 +13,8 @@ local servers = {
 	"jsonls",
 	"ruff_lsp",
 	"emmet_ls",
-    "rust_analyzer"
+    "rust_analyzer",
+    "tailwindcss"
 	-- "yamlls",
 }
 
