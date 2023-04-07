@@ -105,6 +105,8 @@ local mappings = {
      p = { "<cmd>BufferLineTogglePin<cr>", "Toggle Pin" },
      d = { "<cmd>BufferLineSortByDirectory<cr>", "Sort by Directory" },
      e = { "<cmd>BufferLineSortByExtension<cr>", "Sort by Extension" },
+     [","] = { "<cmd>BufferLineMovePrev<cr>", "Move Buffer Left" },
+     ["."] = { "<cmd>BufferLineMoveNext<cr>", "Move Buffer Right" },
   },
 
   x = {

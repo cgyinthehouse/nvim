@@ -87,20 +87,48 @@ M.on_attach = function(client, bufnr)
 	if not status_ok2 then
 		return
 	end
-    if client.server_capabilities.documentSymbolProvider then
-    navic.attach(client,bufnr)
-    end
-    navic.setup({
-      highlight = true,
-      separator = "  "
-    })
+	if client.server_capabilities.documentSymbolProvider then
+		navic.attach(client, bufnr)
+	end
+	navic.setup({
+		highlight = true,
+		separator = "  ",
+		icons = {
+			File = " ",
+			Module = " ",
+			Namespace = " ",
+			Package = " ",
+			Class = " ",
+			Method = " ",
+			Property = " ",
+			Field = " ",
+			Constructor = " ",
+			Enum = " ",
+			Interface = " ",
+			Function = " ",
+			Variable = " ",
+			Constant = " ",
+			String = " ",
+			Number = " ",
+			Boolean = " ",
+			Array = " ",
+			Object = " ",
+			Key = " ",
+			Null = " ",
+			EnumMember = " ",
+			Struct = " ",
+			Event = " ",
+			Operator = " ",
+			TypeParameter = " ",
+		},
+	})
 
-    local status_ok3, signature = pcall(require,"lsp_signature")
-    if not status_ok3 then
-      return
-    end
-    local cfg = require "user.lsp.lsp-signature"
-    signature.on_attach(cfg, bufnr)
+	local status_ok3, signature = pcall(require, "lsp_signature")
+	if not status_ok3 then
+		return
+	end
+	local cfg = require("user.lsp.lsp-signature")
+	signature.on_attach(cfg, bufnr)
 end
 
 return M

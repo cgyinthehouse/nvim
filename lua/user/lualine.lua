@@ -8,7 +8,14 @@ if not status_ok2 then
 	return
 end
 
-local breadcrumbs = { navic.get_location, cond = navic.is_available }
+local breadcrumbs = {
+	function()
+		return navic.get_location()
+	end,
+	cond = function()
+		return navic.is_available()
+	end,
+}
 
 local hide_in_width = function()
 	return vim.fn.winwidth(0) > 80

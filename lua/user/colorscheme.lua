@@ -9,7 +9,7 @@ local nvimTreeFolderIcon = '#e0af68'
 
 nightfox.setup({
   options = {
-    transparent = true,
+    transparent = false,
     styles = {
       comments = "italic",
       keywords = "italic"
@@ -25,7 +25,7 @@ nightfox.setup({
 })
 
 onedark.setup({
-  transparent = true,
+  transparent = false,
   toggle_style_key = "<leader>ts",
   style = "darker",
   code_style = {

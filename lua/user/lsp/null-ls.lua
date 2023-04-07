@@ -25,6 +25,7 @@ null_ls.setup({
     formatting.beautysh,
     diagnostics.ruff,
     code_actions.eslint,
+    code_actions.gitsigns,
     -- diagnostics.eslint.with({extra_args = { "--no-eslintrc" }})
   },
 })
