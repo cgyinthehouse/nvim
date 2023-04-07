@@ -42,6 +42,23 @@ local diagnostics = {
 	always_visible = false,
 }
 
+local active_lsp = {
+	-- Lsp server name .
+	function()
+		local servers = vim.lsp.get_active_clients({ bufnr = 0 })
+		local names = {}
+		if next(servers) == nil then
+			return "No Active Lsp"
+		end
+		for _, server in pairs(servers) do
+			table.insert(names, server.name)
+		end
+		return "[" .. table.concat(names, " ") .. "]"
+	end,
+	icon = "",
+	color = { fg = "#76c6b8", gui = "bold" },
+}
+
 local diff = {
 	"diff",
 	source = diff_source,
@@ -66,6 +83,7 @@ local filetype = {
 local filetype_icon = {
 	"filetype",
 	icon_only = true,
+	color = { bg = "transparent" },
 }
 
 local branch = {
@@ -75,14 +93,24 @@ local branch = {
 }
 
 local location = {
-	"location",
-	padding = 0,
+	function()
+		local line = vim.fn.line(".")
+		local col = vim.fn.virtcol(".")
+		local total_lines = vim.fn.line("$")
+		local progress = string.format("%d%%%%", math.floor(line / total_lines * 100))
+		if line == 1 then
+			progress = "Top"
+		elseif line == total_lines then
+			progress = "Bot"
+		end
+		return string.format("%d/%-d:%-d %s", line, total_lines, col, progress)
+	end,
 }
 
 local filename = {
 	"filename",
 	separator = " ",
-	color = { gui = "bold" },
+	color = { bg = "transparent", gui = "bold" },
 	padding = 0,
 	path = 1,
 	-- 0: Just the filename
@@ -130,9 +158,9 @@ lualine.setup({
 		lualine_a = { mode },
 		lualine_b = { branch, diagnostics },
 		lualine_c = { diff },
-		lualine_x = { spaces, "encoding", "fileformat", filetype },
-		lualine_y = { location },
-		lualine_z = { "progress" },
+		lualine_x = { active_lsp, spaces, "encoding", "fileformat" },
+		lualine_y = { filetype },
+		lualine_z = { location },
 	},
 	inactive_sections = {
 		lualine_a = {},

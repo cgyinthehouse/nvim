@@ -3,7 +3,7 @@ local onedark = require("onedark")
 local nightfox = require("nightfox")
 
 -- colors
-local breadcrumbText = '#9ee4b8'
+local breadcrumbText = '#76c6b8'
 local breadcrumbSeperator = '#a2a2cd'
 local nvimTreeFolderIcon = '#e0af68'
 
