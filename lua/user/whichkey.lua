@@ -122,7 +122,8 @@ local mappings = {
   C = {
     name = "Color Hex",
     c = { "<cmd>CccHighlighterToggle<cr>", "Toggle Highlighter" },
-    p = { "<cmd>CccPick<cr>", "Color Picker" }
+    p = { "<cmd>CccPick<cr>", "Color Picker" },
+    v = { "<cmd>CccConvert<cr>", "Convert Expression" }
   },
 
   p = {
@@ -197,7 +198,7 @@ local mappings = {
     R = { "<cmd>Telescope registers<cr>", "Registers" },
     k = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     C = { "<cmd>Telescope commands<cr>", "Commands" },
-    H = { "<cmd>Telescope highlights<cr>", "Find Highlight Groups" },
+    H = { "<cmd>Telescope highlights layout_config={'preview_width':0.7}<cr>", "Find Highlight Groups" },
     f = { "<cmd>Telescope file_browser<cr>", "File Browser" },
     z = { "<cmd>Telescope zoxide list<cr>", "Zoxide List" },
     [';'] = { "<cmd>Telescope command_history<cr>", "Command History" },

@@ -56,7 +56,7 @@ local active_lsp = {
 		return "[" .. table.concat(names, " ") .. "]"
 	end,
 	icon = "",
-	color = { fg = "#76c6b8", gui = "bold" },
+	color = { fg = "#58a8c2" },
 }
 
 local diff = {
@@ -105,6 +105,7 @@ local location = {
 		end
 		return string.format("%d/%-d:%-d %s", line, total_lines, col, progress)
 	end,
+    color = { gui = 'bold' }
 }
 
 local filename = {
@@ -150,6 +151,7 @@ lualine.setup({
 			"alpha",
 			"dashboard",
 			"NvimTree",
+            "Trouble",
 			winbar = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
 		},
 		always_divide_middle = true,
