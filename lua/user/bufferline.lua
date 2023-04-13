@@ -40,9 +40,9 @@ bufferline.setup({
 			if context.buffer:current() then
 				return ""
 			end
-			local s = " "
+			local s = ""
 			for e, n in pairs(diagnostics_dict) do
-				local symbol = e == "error" and " " or (e == "warning" and " " or " ")
+				local symbol = e == "error" and " " or (e == "warning" and " " or " ")
 				s = s .. symbol .. n
 			end
 			return s
