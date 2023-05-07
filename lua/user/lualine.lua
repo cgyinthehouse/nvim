@@ -36,7 +36,7 @@ local diagnostics = {
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	sections = { "error", "warn", "info", "hint" },
-	symbols = { error = " ", warn = " ", info = " ", hint = " " },
+	symbols = { error = " ", warn = " ", info = " ", hint = "󰌶 " },
 	colored = true,
 	update_in_insert = false,
 	always_visible = false,
@@ -110,7 +110,6 @@ local location = {
 
 local filename = {
 	"filename",
-	separator = " ",
 	color = { bg = "transparent", gui = "bold" },
 	padding = 0,
 	path = 1,
@@ -138,7 +137,7 @@ local filename = {
 -- end
 
 local spaces = function()
-	return " " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
+	return "󰞔 " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
 
 lualine.setup({
@@ -165,7 +164,7 @@ lualine.setup({
 		lualine_z = { location },
 	},
 	inactive_sections = {
-		lualine_a = {},
+		lualine_a = { "filename" },
 		lualine_b = {},
 		lualine_c = {},
 		lualine_x = { filetype },

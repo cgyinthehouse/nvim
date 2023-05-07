@@ -14,8 +14,8 @@ local servers = {
 	"ruff_lsp",
 	"emmet_ls",
     "rust_analyzer",
-    "tailwindcss"
-	-- "yamlls",
+    "tailwindcss",
+	"yamlls",
 }
 
 local settings = {

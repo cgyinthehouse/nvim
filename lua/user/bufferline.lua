@@ -14,11 +14,10 @@ bufferline.setup({
 		-- and so changing this is NOT recommended, this is intended
 		-- as an escape hatch for people who cannot bear it for whatever reason
 		indicator = { style = "icon", icon = "▎" },
-		buffer_close_icon = "",
+		buffer_close_icon = "",
 		-- buffer_close_icon = '',
 		modified_icon = "●",
 		close_icon = "",
-		-- close_icon = '',
 		left_trunc_marker = "",
 		right_trunc_marker = "",
 		--- name_formatter can be used to change the buffer's label in the bufferline.
@@ -42,7 +41,7 @@ bufferline.setup({
 			end
 			local s = ""
 			for e, n in pairs(diagnostics_dict) do
-				local symbol = e == "error" and " " or (e == "warning" and " " or " ")
+				local symbol = e == "error" and " " or (e == "warning" and " " or " 󰌶")
 				s = s .. symbol .. n
 			end
 			return s
