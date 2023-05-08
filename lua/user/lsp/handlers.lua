@@ -14,7 +14,7 @@ M.setup = function()
 
 		{ name = "DiagnosticSignError", text = "" },
 		{ name = "DiagnosticSignWarn", text = "" },
-		{ name = "DiagnosticSignHint", text = "" },
+		{ name = "DiagnosticSignHint", text = "󰌶" },
 		{ name = "DiagnosticSignInfo", text = "" },
 	}
 
@@ -23,7 +23,7 @@ M.setup = function()
 	end
 
 	local config = {
-		virtual_text = false, -- { prefix = '●' }, -- disable virtual text
+		virtual_text = { prefix = '●' }, -- disable virtual text
 		signs = {
 			active = signs, -- show signs
 		},
